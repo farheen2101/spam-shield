@@ -1,30 +1,58 @@
-# Multilingual Spam Shield (Streamlit version)
+# 🛡️ Multilingual Spam Shield
 
-Detects spam/scam messages in English, Hindi and Telugu with an N-Gram model
-and cross-lingual (shared concept token) processing.
+Detect spam and scam messages in **English, Hindi and Telugu** using an N-gram model and cross-lingual processing.
+
+**Live app:** https://multilingual-spam-shield.streamlit.app
+
+---
+
+## About
+
+Paste an SMS, call transcript, email, chat message or link. The app finds the language, turns the text into word patterns, and shows how risky the message is.
+
+## Features
+
+- Detects spam and scams in English, Hindi and Telugu
+- Works on 5 message types: SMS, Call, Email, Chat and Link
+- Maps words from different languages to one shared concept token
+- Uses single words, word pairs and word triples (N-grams)
+- Built-in example messages to try quickly
+
+## How it works
+
+1. **Language detection:** the app identifies the language of the message.
+2. **Shared tokens:** words with the same meaning in different languages are mapped to one shared concept token.
+3. **N-grams:** single words, word pairs and word triples are taken from the shared tokens.
+4. **Risk score:** the message is scored against patterns learned from spam and safe messages.
 
 ## Run on your computer
-1. Install Python 3.9 or newer (https://www.python.org/downloads/ - tick "Add Python to PATH").
-2. Open a terminal in this folder.
-3. (Optional) create a virtual environment:
-       python -m venv venv
-       venv\Scripts\activate          (Windows)
-       source venv/bin/activate       (Mac/Linux)
-4. Install Streamlit:
-       pip install -r requirements.txt
-5. Start the app:
-       streamlit run app.py
-   If "streamlit" is not recognised, use:
-       python -m streamlit run app.py
-6. Your browser opens http://localhost:8501
 
-Stop the app with Ctrl+C in the terminal.
-Light/dark theme: top-right menu (three dots) -> Settings -> Theme.
+**Easiest way (Windows):** double-click `run.bat`. It installs Streamlit if needed and starts the app.
 
-## Files
-- app.py          Streamlit page (user interface)
-- spam_model.py   language detection, tokenising, n-grams, training, scoring
-- requirements.txt
+**Or use the terminal:**
 
-## Easiest way (Windows)
-Double-click run.bat. It installs Streamlit if needed and starts the app.
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+Your browser opens `http://localhost:8501`. Stop the app with `Ctrl+C`.
+
+## Project files
+
+| File | Purpose |
+|------|---------|
+| `app.py` | Streamlit page (user interface) |
+| `spam_model.py` | Language detection, tokenising, n-grams, training and scoring |
+| `Lingua data.py` | Training and test messages |
+| `requirements.txt` | Python packages needed |
+| `run.bat` | One-click start for Windows |
+
+## Built with
+
+- Python
+- Streamlit
+
+## Author
+
+Made by **farheen2101**ss
